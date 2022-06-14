@@ -10,7 +10,7 @@ class Bottom extends StatelessWidget {
       child: Container(
         height: 50,
         child: const TabBar(
-          labelColor: Colors.white,
+          labelColor: Colors.red,
           unselectedLabelColor: Colors.white60,
           indicatorColor: Colors.transparent,
           tabs: [
@@ -33,6 +33,14 @@ class Bottom extends StatelessWidget {
             Tab(
                 icon: Icon(
                   Icons.save_alt,
+                  size: 18,
+                ),
+                child: Text('홈', style: TextStyle(fontSize: 9)
+                )
+            ),
+            Tab(
+                icon: Icon(
+                  Icons.list,
                   size: 18,
                 ),
                 child: Text('홈', style: TextStyle(fontSize: 9)

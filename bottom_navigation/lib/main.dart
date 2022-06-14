@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/screen/fuel.dart';
+import 'package:netflix/screen/map.dart';
+import 'package:netflix/screen/report.dart';
+import 'package:netflix/screen/setting.dart';
+import 'package:netflix/screen/status.dart';
 import 'package:netflix/widget/bottom_bar.dart';
 
 void main() {
@@ -20,22 +25,29 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'nexflix',
       theme: ThemeData(
-          brightness: Brightness.dark,
           primaryColor: Colors.black,
-          accentColor: Colors.white),
+          scaffoldBackgroundColor: Colors.black),
       home: DefaultTabController(
-        length: 4,
-        child: Scaffold(
-          body: TabBarView(
-            physics: NeverScrollableScrollPhysics(),// 손으로 스와이프 방지
-            children: [
-              Container(child: Center(child: Text('home'))),
-              Container(child: Center(child: Text('search'))),
-              Container(child: Center(child: Text('save'))),
-              Container(child: Center(child: Text('more')))
-            ],
+        length: 5,
+        child: SafeArea(
+          child: Scaffold(
+            body: TabBarView(
+              physics: NeverScrollableScrollPhysics(), // 손으로 스와이프 방지
+              children: [
+                Container(child: Center(child: Status())),
+                Container(child: Center(child: Report())),
+                Container(child: Center(child: Fuel())),
+                Container(child: Center(child: MapPage())),
+                Container(child: Center(child: Setting())),
+              ],
+            ),
+            bottomNavigationBar: Container(
+                decoration: BoxDecoration(
+                    color: Color(0xff878585),
+                    border:
+                        Border(top: BorderSide(color: Color(0xff878585), width: 1.0))),
+                child: Bottom()),
           ),
-          bottomNavigationBar: Bottom(),
         ),
       ),
     );
