@@ -75,7 +75,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
       title: Text(widget.title),
     ),
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(100.0),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
