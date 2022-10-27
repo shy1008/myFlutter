@@ -11,21 +11,11 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(),
@@ -44,24 +34,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<List<User>> usersFuture = getUsers();
 
   static Future<List<User>> getUsers() async {
-    // const data = [
-    //   {
-    //     "username": "Sarah Abs",
-    //     "email": "Sarah.Abs@gmail.com",
-    //     "urlAvatar": "https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-    //   },
-    //   {
-    //     "username": "Emma Spoon",
-    //     "email": "Emma.Spoon@gmail.com",
-    //     "urlAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-    //   }
-    // ];
-    // return data.map<User>(User.fromJson).toList();
-
     const url =
         'https://raw.githubusercontent.com/JohannesMilke/futurebuilder_example/master/assets/users.json';
     final response = await http.get(Uri.parse(url));
     final body = json.decode(response.body);
+    print("response = ${body}");
     return body.map<User>(User.fromJson).toList();
   }
 

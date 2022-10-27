@@ -129,17 +129,12 @@ class _ListViewPageState extends State<ListViewPage> {
             return GestureDetector(
               onTap: () {
                 debugPrint(titleList[index]);
-                showPopup(context, titleList[index], imageList[index],
-                    description[index]);
+                showPopup(context, titleList[index], imageList[index], description[index]);
               },
               child: Card(
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    SizedBox(
-                      width: 100,
-                      height: 100,
-                      child: Image.asset(imageList[index]),
-                    ),
                     Padding(
                       padding: EdgeInsets.all(10),
                       child: Column(
@@ -164,7 +159,12 @@ class _ListViewPageState extends State<ListViewPage> {
                           )
                         ],
                       ),
-                    )
+                    ),
+                    SizedBox(
+                      width: 100,
+                      height: 100,
+                      child: Image.asset(imageList[index]),
+                    ),
                   ],
                 ),
               ),
